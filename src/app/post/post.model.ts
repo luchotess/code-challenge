@@ -4,5 +4,6 @@ export class RedditPost {
   num_comments: string = '';
   permalink: string = '';
   title: string = '';
+  created: string = '';
   isRead: boolean = false;
 }

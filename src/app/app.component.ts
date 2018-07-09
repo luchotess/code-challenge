@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
       num_comments: post.data.num_comments,
       permalink: post.data.permalink,
       title: post.data.title,
+      created: post.data.created_utc,
       isRead: false
     }));
   }

@@ -1,5 +1,8 @@
 <article [class.isRead]="post.isRead" (click)="readPost(post)">
-  <h4>{{post.author}}</h4>
+  <header>
+    <h4>{{post.author}}</h4>
+    <div class="date">Updated: {{post.created | amFromUnix | amTimeAgo}}</div>
+  </header>
   <div class="description">
     <img [src]="post.thumbnail"/>
     <p>{{post.title}}</p>

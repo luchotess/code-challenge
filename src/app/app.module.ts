@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PostComponent } from './post/post.component';
   ],
   imports: [
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    MomentModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
