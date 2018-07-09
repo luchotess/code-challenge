@@ -6,13 +6,25 @@ article {
   transition: all .5s;
 
   &.isRead {
-    opacity: .7;
+    opacity: .5;
+
+    .unread-circle {
+      display: none;
+    }
   }
 
   &.isDismissed {
     animation: dismiss;
     animation-duration: .7s;
     animation-fill-mode: forwards;
+  }
+
+  .unread-circle {
+    background-color: darkcyan;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    display: inline-block;
   }
 
   header {

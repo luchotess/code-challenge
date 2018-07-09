@@ -1,10 +1,12 @@
 <article [class.isRead]="post.isRead"
          [class.isDismissed]="post.isDissmised">
 
+
+
   <div class="clickeable-post"
        (click)="readPost(post)">
     <header>
-      <h4>{{post.author}}</h4>
+      <h4><span class="unread-circle"></span> {{post.author}}</h4>
       <div class="date">Updated: {{post.created | amFromUnix | amTimeAgo}}</div>
     </header>
     <div class="description">
