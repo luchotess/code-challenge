@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   getTopReddit () {
     this._DataService.getTopReddit().subscribe(data => {
       this.redditPosts = this.normalizeResponseData(data);
-      console.log(this.redditPosts);
     });
   }
 
@@ -29,7 +28,8 @@ export class AppComponent implements OnInit {
       thumbnail: post.data.thumbnail,
       num_comments: post.data.num_comments,
       permalink: post.data.permalink,
-      title: post.data.title
+      title: post.data.title,
+      isRead: false
     }));
   }
 }

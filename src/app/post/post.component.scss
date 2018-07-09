@@ -1,0 +1,45 @@
+article {
+  color: lightgray;
+  padding: 15px;
+  border-bottom: 1px solid darkgray;
+
+  h4 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .description {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      margin-right: 10px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      background-color: black;
+      border: 1px solid coral;
+      color: coral;
+      padding: 5px;
+    }
+
+    .comments {
+      font-size: 14px;
+      color: coral;
+    }
+  }
+}
