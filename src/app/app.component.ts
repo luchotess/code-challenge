@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
+import { RedditPost } from './post/post.model';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,8 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  redditPosts = [];
-  selectedPost = null;
+  redditPosts: RedditPost[] = [];
+  selectedPost: RedditPost = null;
 
   constructor (private _DataService: DataService) {
   }
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  normalizeResponseData (data) {
+  normalizeResponseData (data): RedditPost[] {
     return data.data.children.map(post => ({
       author: post.data.author,
       thumbnail: post.data.thumbnail,
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
     }));
   }
 
-  readPost (post) {
+  readPost (post: RedditPost) {
     this.selectedPost = post;
   }
 }

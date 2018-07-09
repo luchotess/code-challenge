@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RedditPost } from './post.model';
 
 @Component({
   selector: 'app-post',
@@ -6,8 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  @Input() public post = {};
-  @Output() public emitReadPost = new EventEmitter<any>();;
+  @Input() public post: RedditPost = new RedditPost();
+  @Output() public emitReadPost = new EventEmitter<any>();
 
   constructor () {
   }
@@ -15,9 +16,8 @@ export class PostComponent implements OnInit {
   ngOnInit () {
   }
 
-  public readPost(post) {
+  public readPost(post: RedditPost) {
     post.isRead = true;
     this.emitReadPost.emit(post);
   }
-
 }
