@@ -6,4 +6,5 @@ export class RedditPost {
   title: string = '';
   created: string = '';
   isRead: boolean = false;
+  isDissmised: boolean = false;
 }

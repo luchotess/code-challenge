@@ -8,8 +8,9 @@ import { RedditPost } from './post/post.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  redditPosts: RedditPost[] = [];
-  selectedPost: RedditPost = null;
+  public redditPosts: RedditPost[] = [];
+  public selectedPost: RedditPost = null;
+  public showSidebar = false;
 
   constructor (private _DataService: DataService) {
   }
@@ -38,5 +39,20 @@ export class AppComponent implements OnInit {
 
   readPost (post: RedditPost) {
     this.selectedPost = post;
+    this.showSidebar = false;
+  }
+
+  dismissAll () {
+    this.redditPosts.forEach((post: RedditPost) => {
+      post.isDissmised = true;
+    });
+  }
+
+  toggleSidebar () {
+    this.showSidebar = !this.showSidebar;
+  }
+
+  closeSidebar () {
+    this.showSidebar = false;
   }
 }

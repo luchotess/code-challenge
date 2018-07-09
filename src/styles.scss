@@ -12,3 +12,17 @@ a, a:visited, a:link {
   color: inherit;
   text-decoration: none;
 }
+
+button.main {
+  background-color: black;
+  border: 1px solid coral;
+  color: coral;
+  padding: 5px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  .hide-on-desktop {
+    display: none;
+  }
+}

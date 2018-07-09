@@ -1,14 +1,20 @@
-<article [class.isRead]="post.isRead" (click)="readPost(post)">
-  <header>
-    <h4>{{post.author}}</h4>
-    <div class="date">Updated: {{post.created | amFromUnix | amTimeAgo}}</div>
-  </header>
-  <div class="description">
-    <img [src]="post.thumbnail"/>
-    <p>{{post.title}}</p>
+<article [class.isRead]="post.isRead"
+         [class.isDismissed]="post.isDissmised">
+
+  <div class="clickeable-post"
+       (click)="readPost(post)">
+    <header>
+      <h4>{{post.author}}</h4>
+      <div class="date">Updated: {{post.created | amFromUnix | amTimeAgo}}</div>
+    </header>
+    <div class="description">
+      <img *ngIf="post.thumbnail != 'self'" [src]="post.thumbnail"/>
+      <p>{{post.title}}</p>
+    </div>
   </div>
+
   <div class="actions">
-    <button>X Dissmis Post</button>
+    <button class="main" (click)="dismissPost(post)">X Dissmis Post</button>
     <div class="comments">{{post.num_comments}} comments</div>
   </div>
 </article>

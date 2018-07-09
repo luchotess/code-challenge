@@ -1,12 +1,18 @@
-
-<aside>
-  <app-post *ngFor="let post of redditPosts" [post]="post" (emitReadPost)="readPost($event)"></app-post>
+<aside [class.show]="showSidebar">
+  <button class="main" (click)="dismissAll()">Dismiss All</button>
+  <button class="main hide-on-desktop" (click)="closeSidebar()">Close Sidebar</button>
+  <app-post *ngFor="let post of redditPosts" [post]="post"
+            (emitReadPost)="readPost($event)">
+  </app-post>
 </aside>
 
 <main>
+  <button class="main hide-on-desktop" (click)="toggleSidebar()">Show Sidebar</button>
+
   <article *ngIf="selectedPost; else noSelectedPost">
     <h1>{{selectedPost.author}}</h1>
-    <img [src]="selectedPost.thumbnail"/>
+    <img *ngIf="selectedPost.thumbnail != 'self'"
+         [src]="selectedPost.thumbnail"/>
     <p>{{selectedPost.title}}</p>
   </article>
 

@@ -3,9 +3,16 @@ article {
   padding: 15px;
   border-bottom: 1px solid darkgray;
   cursor: pointer;
+  transition: all .5s;
 
   &.isRead {
     opacity: .7;
+  }
+
+  &.isDismissed {
+    animation: dismiss;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
   }
 
   header {
@@ -46,16 +53,24 @@ article {
     justify-content: space-between;
     align-items: center;
 
-    button {
-      background-color: black;
-      border: 1px solid coral;
-      color: coral;
-      padding: 5px;
-    }
-
     .comments {
       font-size: 14px;
       color: coral;
     }
+  }
+}
+
+@keyframes dismiss {
+  0% {
+    transform: translateX(0);
+  }
+
+  99% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(-150%);
+    position: absolute;
   }
 }

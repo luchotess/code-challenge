@@ -20,4 +20,8 @@ export class PostComponent implements OnInit {
     post.isRead = true;
     this.emitReadPost.emit(post);
   }
+
+  public dismissPost(post: RedditPost) {
+    post.isDissmised = true;
+  }
 }
