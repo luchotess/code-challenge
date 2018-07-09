@@ -9,15 +9,27 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
   redditPosts = [];
 
-  constructor(private _DataService: DataService) {}
+  constructor (private _DataService: DataService) {
+  }
 
-  ngOnInit() {
+  ngOnInit () {
     this.getTopReddit();
   }
 
-  getTopReddit() {
-    this._DataService.getTopReddit().subscribe(posts => {
-      this.redditPosts = posts;
+  getTopReddit () {
+    this._DataService.getTopReddit().subscribe(data => {
+      this.redditPosts = this.normalizeResponseData(data);
+      console.log(this.redditPosts);
     });
+  }
+
+  normalizeResponseData (data) {
+    return data.data.children.map(post => ({
+      author: post.data.author,
+      thumbnail: post.data.thumbnail,
+      num_comments: post.data.num_comments,
+      permalink: post.data.permalink,
+      title: post.data.title
+    }));
   }
 }
