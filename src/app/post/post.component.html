@@ -1,4 +1,4 @@
-<article [class.readed]="post.isRead">
+<article [class.isRead]="post.isRead" (click)="readPost(post)">
   <h4>{{post.author}}</h4>
   <div class="description">
     <img [src]="post.thumbnail"/>

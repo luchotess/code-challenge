@@ -1,4 +1,16 @@
 
 <aside>
-  <app-post *ngFor="let post of redditPosts" [post]="post"></app-post>
+  <app-post *ngFor="let post of redditPosts" [post]="post" (emitReadPost)="readPost($event)"></app-post>
 </aside>
+
+<main>
+  <article *ngIf="selectedPost; else noSelectedPost">
+    <h1>{{selectedPost.author}}</h1>
+    <img [src]="selectedPost.thumbnail"/>
+    <p>{{selectedPost.title}}</p>
+  </article>
+
+  <ng-template #noSelectedPost>
+    <h2>Please select a post from the sidebar</h2>
+  </ng-template>
+</main>

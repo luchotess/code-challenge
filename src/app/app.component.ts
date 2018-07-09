@@ -8,6 +8,7 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit {
   redditPosts = [];
+  selectedPost = null;
 
   constructor (private _DataService: DataService) {
   }
@@ -31,5 +32,9 @@ export class AppComponent implements OnInit {
       title: post.data.title,
       isRead: false
     }));
+  }
+
+  readPost (post) {
+    this.selectedPost = post;
   }
 }
